@@ -1,0 +1,87 @@
+body {
+    font-family: "Gloria Hallelujah", cursive;
+    font-weight: 500;
+    font-style: normal;
+    background-color: #fca430;
+    padding: 10px;
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 24px;
+    border: black 5px solid;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+    text-decoration: none;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    filter: brightness(60%);
+}
+
+/* Variasi Warna contoh pakai: class="button red" */
+.button.red {
+    background-color: #ff5e5e;
+}
+
+.button.blue {
+    background-color: #4a90e2;
+}
+
+.button.green {
+    background-color: #3adb76;
+}
+
+.button.yellow {
+    background-color: #fdd835;
+    color: #333;
+}
+
+.button.purple {
+    background-color: #ab47bc;
+}
+
+.m-50 {
+    margin: 50px;
+}
+
+.m-40 {
+    margin: 40px;
+}
+
+.m-30 {
+    margin: 30px;
+}
+
+.m-20 {
+    margin: 20px;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.mt-50 {
+    margin-top: 50px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-30 {
+    margin-top: 30px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
