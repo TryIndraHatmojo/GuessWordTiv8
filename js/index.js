@@ -15,6 +15,7 @@ function setInitialLocalStorage(){
         localStorage.setItem("data-high-score", JSON.stringify(dataHighScore))
         console.log("initial high score")
     }
+    localStorage.setItem("score",0)
 }
 
 window.onload = function(){
