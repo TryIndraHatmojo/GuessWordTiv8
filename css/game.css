@@ -13,12 +13,58 @@
 }
 
 .card-game {
-    background-color: #ff7600;
+    /* background-color: #ff7600; */
+    background-color: white;
     border-radius: 12px;
     padding: 20px;
-    max-width: 400px;
-    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin-top: -80px;
+    /* margin-top: -80px; */
+    color: black;
+    font-weight: bolder;
+}
+
+.card-game .main-menu-sub-title {
+    margin-top: -30px;
+}
+
+.card-game .timer {
+    display: inline;
+    float: left;
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+
+.card-game .score {
+    display: inline;
+    float: right;
+    margin-top: -15px;
+    margin-bottom: 0px;
+}
+
+.card-game .category {
+    clear: both;
+    margin-top: -30px;
+    color: red;
+}
+
+.card-game .question {
+    margin-top: -20px;
+    margin-bottom: 0px;
+    color: blue;
+}
+
+.card-game .answer {
+    margin: 0px;
+}
+
+.card-game .hint {
+    color: orange;
+}
+
+.reset-answer {
+    padding: 2px 5px;
 }
