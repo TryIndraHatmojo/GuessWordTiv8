@@ -1,25 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nama Menu - GuessWordTiv8</title>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap"
+      rel="stylesheet"
+    />
     <!-- cara panggil file css, yang di folder css: ./css/namafile.css -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./css/game-result.css" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
     <!-- 
     isi kontent 
     -->
-
+    <div class="container-game">
+      <div class="card-game">
+        <h1>Game Result</h1>
+        <p>
+          <strong>Score : <span id="score"></span></strong>
+        </p>
+        <div>
+          <label><strong>Name</strong><span class="name"></span></label>
+          <input id="nama" type="text" />
+        </div>
+        <a
+          href="javascript:;"
+          class="button red m-10"
+          style="padding: 2px 5px"
+          onclick="saveScore()"
+          >Submit</a
+        >
+        <a
+          href="index.html"
+          class="button yellow m-10"
+          style="padding: 2px 5px"
+          onclick="backToMenu()"
+          >Main Menu</a
+        >
+      </div>
+    </div>
     <!-- 
     file javascript 
     -->
-<!-- cara panggil file js, yang ada di folder js: ./js/filescript.js -->sss
-    <script src="./js/filescript.js"></script>
-</body>
+    <!-- cara panggil file js, yang ada di folder js: ./js/filescript.js -->
+    <script src="./js/game-result.js"></script>
+  </body>
 </html>

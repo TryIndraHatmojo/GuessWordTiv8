@@ -38,8 +38,8 @@ function reduceTimer(){
         let htmlButtons = document.getElementById("buttons")
         htmlButtons.innerHTML = ""
         stopTimer()
-        alert(`Selamat anda mendapatkan score ${score}!`)
-        localStorage.setItem("score",0)
+        window.location.replace("/game-result.html")
+        localStorage.setItem("score",score)
         htmlScore.innerText = 0
         htmlQuestion.innerText = ""
         htmlHint.innerText = ""
