@@ -6,7 +6,6 @@ body {
     padding: 10px;
     background-image: url("../img/gambar-fox.png");
     background-position: top left;
-    background-repeat: no-repeat;
 }
 
 .button {
