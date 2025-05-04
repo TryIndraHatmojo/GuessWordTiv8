@@ -38,13 +38,13 @@ function reduceTimer(){
         let htmlButtons = document.getElementById("buttons")
         htmlButtons.innerHTML = ""
         stopTimer()
-        window.location.replace("/game-result.html")
+
         localStorage.setItem("score",score)
         htmlScore.innerText = 0
         htmlQuestion.innerText = ""
         htmlHint.innerText = ""
         htmlCategory.innerText = ""
-        
+        window.location.href = "game-result.html"
     }
 
     localStorage.setItem("timer", currentTimer);
