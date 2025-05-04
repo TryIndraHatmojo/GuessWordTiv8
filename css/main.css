@@ -2,7 +2,7 @@ body {
     font-family: "Gloria Hallelujah", cursive;
     font-weight: 500;
     font-style: normal;
-    background-color: #fca430;
+    background-color: #fca430 !important;
     padding: 10px;
     background-image: url("../img/gambar-fox.png");
     background-position: top left;
