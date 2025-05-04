@@ -10,7 +10,11 @@ function getHighScore(){
 
     for(let i = 0;i<urutScore.length;i++){
         let perObj = urutScore[i]
-        list += `<li>${perObj.name}: ${perObj.score}</li>`
+        list += `<li>${perObj.name} : ${perObj.score}</li>`
+
+        if(i === 4) {
+            break
+        }
     }
     htmlListHighScore.innerHTML = list
 }
