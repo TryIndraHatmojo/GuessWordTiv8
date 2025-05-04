@@ -116,14 +116,22 @@ function hapusQuestion(id){
     let questions = localStorage.getItem("data-questions")
     questions = JSON.parse(questions)
     console.log(questions)
-    localStorage.setItem("data-high-score", JSON.stringify(/**isi dari ini adalah objek yang mas udah ubah */));
+    
+    let deletedQuestion = []
+
+    for (let i = 0; i < questions.length; i++) {
+        if (questions[i].id !== id) {
+            deletedQuestion.push(questions[i]);
+        }
+    }
+    
+    localStorage.setItem("data-questions", JSON.stringify(deletedQuestion));
 
 
     // buat update HTML yang baru
-    getListQuestions()
+   getListQuestions()
 }
 
 window.onload = function(){
     getListQuestions()
-    hapusQuestion()
 }
