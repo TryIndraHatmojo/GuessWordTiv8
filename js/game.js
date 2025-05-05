@@ -26,11 +26,11 @@ function reduceTimer(){
 
     let currentTimer = localStorage.getItem("timer")
     currentTimer--
-    if(currentTimer >= 0 && currentTimer <= 20){
+    if(currentTimer >= 0 && currentTimer < 15){
         htmlContainerTimer.style.color = "red"
-    }else if(currentTimer >= 21 && currentTimer <= 40){
+    }else if(currentTimer >= 15 && currentTimer <= 25){
         htmlContainerTimer.style.color = "orange"
-    }else if(currentTimer > 40){
+    }else if(currentTimer > 25){
         htmlContainerTimer.style.color = "green"
     }
     
@@ -109,7 +109,7 @@ function generateButton(question){
         let perChar = answer[i]
         if(listBtn.indexOf(perChar) === -1){
             listBtn.push(perChar)
-            let randNumber = Math.floor(Math.random() * (listWarnaTombol.length-1));
+            let randNumber = Math.floor(Math.random() * listWarnaTombol.length);
             let warna = listWarnaTombol[randNumber]
             html += `<a id="btn_${perChar}" class="btnAnswer button ${warna} m-10" onclick="cekAnswer('${perChar}',${indexQuestion})">${perChar.toUpperCase()}</a>`
         }
@@ -184,14 +184,120 @@ function cekAnswer(char, indexQuestion){
 
         let resSetRandomQuestion = setRandomQuestion(questions)
         generateButton(resSetRandomQuestion)
-
+        addLog("correct")
     }else if(question.answer.length === userAnswer.length){
         let resDefaultAnswer = defaultAnswer(question)
         document.getElementById("answer").innerHTML = resDefaultAnswer
+        addLog("wrong")
     }
     console.log("cekAnswer")
 }
 
+function addLog(type){
+    const correctMessages = {
+        messages: [
+            "You're on fire! 🔥",
+            "Boom! Nailed it! 💥",
+            "That's how it's done! 😎",
+            "Sheeesh, you're good! 🧠✨",
+            "Big brain moves! 🧠💯",
+            "You crushed it! 💪",
+            "Too easy for you, huh? 😏",
+            "Slayed it! 🔥👑",
+            "No cap, you're killin' it! 🧢🚫",
+            "W combo! Keep it rollin' 🎉",
+            "You're the GOAT! 🐐",
+            "EZ clap, bro 👏😤",
+            "One shot, one kill! 🎯",
+            "Straight dubs only! 🏆",
+            "Legendary answer! 🌟",
+            "Nice one, bro! ✌️",
+            "You got it, easy peasy 😎",
+            "Well done, mate! 👍",
+            "Clean answer, respect 🙌",
+            "That was smooth 💫",
+            "You did great, no stress 😌",
+            "Right on point, bro 🎯",
+            "Solid pick! 👌",
+            "Bang on! Keep it up 🔥",
+            "Good vibes only, nice job ✨",
+            "You’re doing awesome! 🫶",
+            "Chill move, well played 🎮",
+            "Yep, that’s the one! ✅",
+            "Casual win, love it 😏",
+            "Easy win, you got style 💁‍♂️"
+        ]
+    };
+    
+    const wrongMessages = {
+        messages:[
+            "Oops, not quite 😅",
+            "Close, but nope 😬",
+            "Almost! Try again 👀",
+            "Ehh... not this time 😔",
+            "Nice try tho! ✌️",
+            "Wrong one, but you got this 💪",
+            "So close, yet so far 😢",
+            "Nah bro, try another one 😅",
+            "Don't give up now! 🔄",
+            "Ayy, not it, but you’re learning 🎓",
+            "Nope, but nice effort 👏",
+            "Keep goin’, you’ll get it 🔥",
+            "That ain't it chief 🫠",
+            "Wanna try that again? 😏",
+            "Mistakes make masters 😌",
+            "Bruh... what was that? 😂",
+            "That answer belongs in the trash 🗑️😅",
+            "Try again, but maybe with your eyes open this time 👀",
+            "Uhh... you good, bro? 🤨",
+            "LOL nope! But nice try tho 😎",
+            "That was not it, chief 🤡",
+            "Are you even trying? 😂",
+            "Wrong answer, but your vibe is still immaculate ✨",
+            "That guess was so bad it hurt my pixels 😭",
+            "Close... like, in a different universe 😆",
+            "You missed it like a stormtrooper 🌌🔫",
+            "Brain.exe has stopped working 🧠💥",
+            "Wanna phone a friend? 📞🤣",
+            "Plot twist: that was the wrong answer! 📚",
+            "You had one job, bro... ONE JOB 😩"
+        ]
+    }
+    
+    const welcomeMessages = {
+        messages: [
+            "Welcome to the game! Ready to have some fun? 🎮",
+            "Yo! Glad you're here. Let's play! 😎",
+            "Hey there! Let’s get this game started! 🔥",
+            "Welcome, player! Time to show your skills 💪",
+            "Let the fun begin! 🎉",
+            "You made it! Ready to play? 😁",
+            "Game on! Good luck, champ! 🏆",
+            "Let’s do this! Have fun and play smart 😏",
+            "Welcome! Hope you’re ready for a challenge 🎯",
+            "It’s game time! Let’s gooo 🚀"
+        ]
+    };
+
+    let logContainer = document.getElementById("log-container")
+    
+    if(type === "welcome"){
+        let index = Math.floor(Math.random() * welcomeMessages.messages.length)
+        logContainer.innerHTML += `<div class="log-message blue">${welcomeMessages.messages[index]}</div>`
+    }else if(type === "correct"){
+        let index = Math.floor(Math.random() * correctMessages.messages.length)
+        logContainer.innerHTML += `<div class="log-message green">${correctMessages.messages[index]}</div>`
+        let randomAudio = Math.floor(Math.random() * 3)
+        document.getElementById(`audio-correct-${randomAudio}`).play()
+    }else if(type === "wrong"){
+        let index = Math.floor(Math.random() * wrongMessages.messages.length)
+        logContainer.innerHTML += `<div class="log-message red">${wrongMessages.messages[index]}</div>`
+        document.getElementById(`audio-wrong-1`).play()
+    }
+    logContainer.scrollTop = logContainer.scrollHeight;
+}
+
 window.onload = function(){
     startGame()
+    addLog("welcome")
 }
