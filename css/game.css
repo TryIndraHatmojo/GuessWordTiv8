@@ -19,11 +19,18 @@
     padding: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    width: 500px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     /* margin-top: -80px; */
     color: black;
     font-weight: bolder;
+}
+
+.card h1 {
+    font-family: "Gloria Hallelujah", cursive;
+}
+
+.card td {
+    font-weight: normal;
 }
 
 .card-game {
@@ -85,4 +92,61 @@
 
 .btn-list-question {
     padding: 2px 5px;
+}
+
+.btn-trash {
+    padding: 2px 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    border: black 3px solid;
+}
+
+.btn-edit {
+    padding: 2px 5px;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    border: black 3px solid;
+}
+
+.btn-add {
+    padding: 2px 5px;
+    display: inline-block !important;
+    border: black 3px solid;
+    width: 160px;
+}
+
+.btn-modal {
+    padding: 5px 15px;
+    border: black 3px solid;
+}
+
+.log-container {
+    max-height: 100px;
+    overflow: auto;
+    border-top: thick black;
+}
+
+.log-message {
+    margin-bottom: 10px;
+    padding: 5px 5px;
+    border-radius: 8px;
+}
+
+.log-message.red {
+    background-color: #ff5e5e;
+    color: white;
+}
+
+.log-message.green {
+    background-color: #3adb76;
+    color: white;
+}
+
+.log-message.blue {
+    background-color: #4a90e2;
+    color: white;
+}
+
+.hint {
+    margin-bottom: 0px;
 }
