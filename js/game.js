@@ -287,7 +287,7 @@ function addLog(type){
     }else if(type === "correct"){
         let index = Math.floor(Math.random() * correctMessages.messages.length)
         logContainer.innerHTML += `<div class="log-message green">${correctMessages.messages[index]}</div>`
-        let randomAudio = Math.floor(Math.random() * 3)
+        let randomAudio = Math.floor(Math.random() * 3) + 1
         document.getElementById(`audio-correct-${randomAudio}`).play()
     }else if(type === "wrong"){
         let index = Math.floor(Math.random() * wrongMessages.messages.length)
