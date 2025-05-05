@@ -150,3 +150,7 @@
 .hint {
     margin-bottom: 0px;
 }
+
+#audio-button {
+    cursor: pointer;
+}
