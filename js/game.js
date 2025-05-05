@@ -162,7 +162,6 @@ function reduceTimerBy(second){
     currentTimer -= second
     localStorage.setItem("timer", currentTimer);
     document.getElementById("timer").innerText = currentTimer
-    console.log(`reduceTimerBy(${second})`)
 }
 
 function cekAnswer(char, indexQuestion){
