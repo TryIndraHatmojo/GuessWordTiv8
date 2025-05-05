@@ -6,7 +6,6 @@ body {
     padding: 10px;
     background-image: url("../img/gambar-fox.png");
     background-position: top left;
-    background-repeat: no-repeat;
 }
 
 .button {
@@ -91,4 +90,8 @@ body {
 
 .button-game-result {
     color: black
+}
+
+audio {
+    display: none;
 }
