@@ -12,8 +12,15 @@
     <link rel="stylesheet" href="./css/game.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
 </head>
+<body>
     <div class="container-game">
         <div class="card">
+            <h1 class="text-center">Customize your questions</h1>
+            <div style="display: inline-block;">
+                <a class="button green btn-add" onclick="createQuestion()" href="javascript:;">+ Create Question</a>
+                <a class="button yellow btn-add" style="float: right;" href="index.html">Back to main menu</a>
+            </div>
+            
             <table id="table-list-questions" class="table">
                 <thead>
                     <tr>
@@ -26,12 +33,82 @@
                     </tr>
                 </thead>
                 <tbody id="table-body-list-questions">
-    
+
                 </tbody>
             </table>
         </div>
     </div>
-<body>
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLable" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="createModalLable">Create Question</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="question-create" class="col-form-label fw-bolder">Question:</label>
+                            <input type="text" class="form-control" id="question-create" maxlength="100">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category-create" class="col-form-label fw-bolder">Category:</label>
+                            <input type="text" class="form-control" id="category-create" maxlength="20">
+                        </div>
+                        <div class="mb-3">
+                            <label for="answer-create" class="col-form-label fw-bolder">Answer:</label>
+                            <input type="text" class="form-control" id="answer-create" maxlength="20">
+                        </div>
+                        <div class="mb-3">
+                            <label for="hint-create" class="col-form-label fw-bolder">Hint:</label>
+                            <input type="text" class="form-control" id="hint-create" maxlength="20">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button red fw-bolder btn-modal" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button green fw-bolder btn-modal" onclick="storeQuestion()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLable" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalLable">Edit Question</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="question-edit" class="col-form-label fw-bolder">Question:</label>
+                            <input type="text" class="form-control" id="question-edit" maxlength="100">
+                        </div>
+                        <div class="mb-3">
+                            <label for="category-edit" class="col-form-label fw-bolder">Category:</label>
+                            <input type="text" class="form-control" id="category-edit" maxlength="20">
+                        </div>
+                        <div class="mb-3">
+                            <label for="answer-edit" class="col-form-label fw-bolder">Answer:</label>
+                            <input type="text" class="form-control" id="answer-edit" maxlength="20">
+                        </div>
+                        <div class="mb-3">
+                            <label for="hint-edit" class="col-form-label fw-bolder">Hint:</label>
+                            <input type="text" class="form-control" id="hint-edit" maxlength="20">
+                        </div>
+                        <input type="hidden" id="id-edit">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="button red fw-bolder btn-modal" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="button green fw-bolder btn-modal" onclick="updateQuestion()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <script src="./js/list-questions-menu.js"></script>
 </body>
