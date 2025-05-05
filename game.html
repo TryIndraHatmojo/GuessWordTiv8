@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css?v=1.0.1">
-    <link rel="stylesheet" href="./css/game.css?v=1.0.1">
+    <link rel="stylesheet" href="./css/main.css?v=1.0.2">
+    <link rel="stylesheet" href="./css/game.css?v=1.0.2">
 </head>
 <body>
     <div class="container-game">
@@ -29,17 +29,33 @@
             <h1 class="answer">
                 <span id="answer"></span> 
             </h1>
-            <a onclick="resetAnswer()" class="button red reset-answer">Reset Answer</a>
+            <a onclick="resetAnswer();addLog('wrong')" class="button red reset-answer">Reset Answer</a>
             <div id="buttons">
             </div>
             <h2 class="hint">
                 Hint: <span id="hint"></span>
             </h2>
+            <div class="log-container" id="log-container">
+            </div>
             <h2><span id="reaction"></span></h2>
             <a href="index.html" class="button yellow mt-10">Back to main menu</a>
         </div>
-        <a></a>
     </div>
-    <script src="./js/game.js?v=1.0.2"></script>
+    <script src="./js/game.js?v=1.0.3"></script>
+    <audio controls autoplay loop>
+        <source src="./audio/The-Builder(chosic.com).mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audio-correct-1">
+        <source src="./audio/correct_1.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-correct-2">
+        <source src="./audio/correct_2.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-correct-3">
+        <source src="./audio/correct_3.wav" type="audio/wav">
+    </audio>
+    <audio id="audio-wrong-1">
+        <source src="./audio/wrong_1.wav" type="audio/wav">
+    </audio>
 </body>
 </html>
