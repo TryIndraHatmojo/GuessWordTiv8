@@ -2,7 +2,6 @@ let timerInterval
 
 function stopTimer(){
     clearInterval(timerInterval)
-    console.log("stopTimer()")
 }
 
 function reduceTimer(){
@@ -50,7 +49,6 @@ function reduceTimer(){
     localStorage.setItem("timer", currentTimer);
     htmlTimer.innerText = currentTimer
     
-    console.log("reduceTimer()")
 
 }
 
@@ -58,7 +56,6 @@ function startTimer(){
     localStorage.setItem("timer", 30);
     document.getElementById("timer").innerText = 30
     timerInterval = setInterval(reduceTimer, 1000)
-    console.log("startTimer()")
 }
 
 function defaultAnswer(question){
@@ -82,7 +79,6 @@ function setRandomQuestion(questions){
     let resDefaultAnswer = defaultAnswer(question)
     document.getElementById("answer").innerText = resDefaultAnswer
     
-    console.log("setRandomQuestion()")
     return question
 }
 
@@ -117,7 +113,6 @@ function generateButton(question){
     }
 
     htmlButtons.innerHTML = html
-    console.log("generateButton()")
 }
 
 function startGame(){
@@ -135,7 +130,6 @@ function startGame(){
 
     // Buat tombol acak untuk menjawab pertanyaan
     generateButton(resSetRandomQuestion)
-    console.log("startGame()")
 }
 
 // section handle jawaban
@@ -156,12 +150,18 @@ function addScore(){
     document.getElementById("score").innerText = score
 }
 
-function addTimer(){
+function addTimerBy(second){
     let currentTimer = Number(localStorage.getItem("timer"))
-    currentTimer += 10
+    currentTimer += second
     localStorage.setItem("timer", currentTimer);
     document.getElementById("timer").innerText = currentTimer
-    console.log("addTimer()")
+}
+
+function reduceTimerBy(second){
+    let currentTimer = Number(localStorage.getItem("timer"))
+    currentTimer -= second
+    localStorage.setItem("timer", currentTimer);
+    document.getElementById("timer").innerText = currentTimer
 }
 
 function cekAnswer(char, indexQuestion){
@@ -176,11 +176,10 @@ function cekAnswer(char, indexQuestion){
     }
     
     let userAnswer = htmlAnswer.innerText
-    console.log(userAnswer, question.answer.toUpperCase())
     if(question.answer.toUpperCase() === userAnswer){
         resetAnswer()
         addScore()
-        addTimer()
+        addTimerBy(10)
 
         let resSetRandomQuestion = setRandomQuestion(questions)
         generateButton(resSetRandomQuestion)
@@ -190,7 +189,6 @@ function cekAnswer(char, indexQuestion){
         document.getElementById("answer").innerHTML = resDefaultAnswer
         addLog("wrong")
     }
-    console.log("cekAnswer")
 }
 
 function addLog(type){
@@ -291,8 +289,9 @@ function addLog(type){
         document.getElementById(`audio-correct-${randomAudio}`).play()
     }else if(type === "wrong"){
         let index = Math.floor(Math.random() * wrongMessages.messages.length)
-        logContainer.innerHTML += `<div class="log-message red">${wrongMessages.messages[index]}</div>`
+        logContainer.innerHTML += `<div class="log-message red">${wrongMessages.messages[index]}<br> - 3 second</div>`
         document.getElementById(`audio-wrong-1`).play()
+        reduceTimerBy(3)
     }
     logContainer.scrollTop = logContainer.scrollHeight;
 }
