@@ -9,7 +9,7 @@ function saveScore() {
   let htmlNama = document.getElementById("nama").value;
 
   if (htmlNama === "") {
-    alert("Please fill in your name first!");
+    alert("Please Fill In Your Name First!");
   }
 
   if (htmlNama !== "") {
