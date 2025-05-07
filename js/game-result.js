@@ -7,14 +7,14 @@ function saveScore() {
   let score = localStorage.getItem("score");
 
   let htmlNama = document.getElementById("nama").value;
-  
+
   if (htmlNama === "") {
-    alert("Please fill in your name first!")
+    alert("Please Fill In Your Name First!");
   }
-  
+
   if (htmlNama !== "") {
-    alert(`Thank You For Playing Our Game ${htmlNama}`)
-    
+    alert(`Thank You For Playing Our Game ${htmlNama}`);
+
     let dataHighScore = localStorage.getItem("data-high-score");
     dataHighScore = JSON.parse(dataHighScore);
 
