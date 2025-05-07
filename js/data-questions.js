@@ -1,4 +1,4 @@
-export const wordGuessQuestions = [
+const wordGuessQuestions = [
     { id: 1, question: "Animal that says 'meow'", answer: "cat", hint: "c _ t", category: "animals" },
     { id: 2, question: "Baby dog", answer: "puppy", hint: "p _ p p _", category: "animals" },
     { id: 3, question: "Animal that gives milk", answer: "cow", hint: "c _ w", category: "animals" },
