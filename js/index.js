@@ -1,6 +1,3 @@
-import {wordGuessQuestions} from "./data-questions.js"
-import {listHighScore} from "./data-high-score.js"
-
 function setInitialLocalStorage(){
     let dataQuestions = localStorage.getItem("data-questions")
     if(!dataQuestions){
@@ -16,6 +13,20 @@ function setInitialLocalStorage(){
         console.log("initial high score")
     }
     localStorage.setItem("score",0)
+}
+
+function audioButton(){
+    let audioBtn = document.getElementById("audio-button")
+    let attr = audioBtn.getAttribute("name")
+    let audio = document.getElementById("audio-main-menu")
+    if(attr === "volume-full"){
+        audioBtn.setAttribute("name", "volume-mute")
+        audio.muted = true;
+    }else{
+        audioBtn.setAttribute("name", "volume-full")
+        audio.muted = false;
+        audio.play()
+    }
 }
 
 window.onload = function(){
