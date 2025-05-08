@@ -1,8 +1,8 @@
 .container-game {
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .container-game:hover {
-    transform: scale(1.1); /* Efek zoom saat dihover */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Efek bayangan saat dihover */
-  }
+  transition: all 0.3s ease-in-out;
+}
+
+.container-game:hover {
+  transform: scale(1.1); /* Efek zoom saat dihover */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Efek bayangan saat dihover */
+}
