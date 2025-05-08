@@ -114,23 +114,48 @@ function updateQuestion(){
 }
 
 function hapusQuestion(id){
-    let questions = localStorage.getItem("data-questions")
-    questions = JSON.parse(questions)
-    console.log(questions)
-    
-    let deletedQuestion = []
+    const swalWithCustomBtn = Swal.mixin({
+            customClass: {
+            confirmButton: "button red m-10",
+            cancelButton: "button blue m-10"
+        },
+        buttonsStyling: false
+    });
 
-    for (let i = 0; i < questions.length; i++) {
-        if (questions[i].id !== id) {
-            deletedQuestion.push(questions[i]);
+    swalWithCustomBtn.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            let questions = localStorage.getItem("data-questions")
+            questions = JSON.parse(questions)
+            console.log(questions)
+            
+            let deletedQuestion = []
+
+            for (let i = 0; i < questions.length; i++) {
+                if (questions[i].id !== id) {
+                    deletedQuestion.push(questions[i]);
+                }
+            }
+            
+            localStorage.setItem("data-questions", JSON.stringify(deletedQuestion));
+            // buat update HTML yang baru
+            getListQuestions()
+            
+            swalWithCustomBtn.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
         }
-    }
-    
-    localStorage.setItem("data-questions", JSON.stringify(deletedQuestion));
-
-
-    // buat update HTML yang baru
-   getListQuestions()
+    });
 }
 
 window.onload = function(){
