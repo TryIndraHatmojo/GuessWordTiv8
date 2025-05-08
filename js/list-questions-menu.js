@@ -74,6 +74,7 @@ function storeQuestion(){
     saveLocalStorageQuestions(questions)
     
     getListQuestions()
+    createModal.hide()
 }
 
 function editQuestion(id){
